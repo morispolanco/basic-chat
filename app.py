@@ -3,6 +3,13 @@ import streamlit as st
 
 with st.sidebar:
     openai_api_key = st.text_input("OpenAI API Key", key="chatbot_api_key", type="password")
+    prompts = [
+        "Your task is to write a book for me...",
+        "Then, create a table of contents with 9 chapters...",
+        "...",
+        "...",
+    ]
+    prompt = st.selectbox('Select a prompt', prompts)
 
 st.title("💬 Chatbot")
 if "messages" not in st.session_state:
