@@ -1,10 +1,15 @@
 import openai
 import streamlit as st
+
+# El archivo prompts.py debe ser un módulo Python en el mismo directorio que este script.
 import prompts
 
 with st.sidebar:
     openai_api_key = st.text_input("OpenAI API Key", key="chatbot_api_key", type="password")
-    prompt = st.selectbox('Select a prompt', prompts.prompts_list)
+    selected_prompt = st.selectbox('Select a prompt', options=[p["name"] for p in prompts.prompts_list])
+
+# Obtenemos la descripción del prompt seleccionado
+prompt_description = next((p["description"] for p in prompts.prompts_list if p["name"] == selected_prompt), None)
 
 st.title("💬 Chatbot")
 if "messages" not in st.session_state:
