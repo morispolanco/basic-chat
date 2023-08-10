@@ -40,8 +40,7 @@ if prompt := st.chat_input():
     st.session_state["messages"].append({"role": "user", "content": prompt})
 
      # Modelado de la solicitud con el historial completo del chat actual
-    response = openai.ChatCompletion.create(model="gpt-3.5-turbo", orientation="customer", 
-                                            styles=[{"tone": "assistant"}],
+    response = openai.ChatCompletion.create(model="gpt-3.5-turbo",
                                             messages=st.session_state.get("messages", []))
     
     # Añade la respuesta del asistente al historial del chat y imprímela
