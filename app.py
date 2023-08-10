@@ -9,7 +9,7 @@ with st.sidebar:
 
 st.title("💬 Chatbot")
 if "messages" not in st.session_state:
-    st.session_state["messages"] = [{"role": "writer", "content": "Tu tarea es escribir un libro para mí. Primero, por favor, pregúntame "
+    st.session_state["messages"] = [{"role": "assistant", "content": "Tu tarea es escribir un libro para mí. Primero, por favor, pregúntame "
                                                                  "el título del libro y la audiencia. Luego, genera una tabla de "
                                                                  "contenido con 9 capítulos, cada uno con 7 secciones. Una vez que "
                                                                  "hayas creado la tabla de contenido, pídemela para que pueda aprobar "
